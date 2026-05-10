@@ -7,9 +7,15 @@ namespace WordFrequencyCounter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Word Frequency Counter - Version 1");
+            Console.WriteLine("Word Frequency Counter - Version 2");
             Console.Write("Enter folder path: ");
             string folderPath = Console.ReadLine();
+
+            Console.Write("Enter N value: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter M value: ");
+            int m = Convert.ToInt32(Console.ReadLine());
 
             FileReader fileReader = new FileReader();
             TextProcessor textProcessor = new TextProcessor();
@@ -19,7 +25,7 @@ namespace WordFrequencyCounter
 
             foreach (string content in fileContents)
             {
-                List<string> words = textProcessor.ProcessText(content);
+                List<string> words = textProcessor.ProcessText(content, n, m);
                 wordCounter.CountWords(words);
             }
 

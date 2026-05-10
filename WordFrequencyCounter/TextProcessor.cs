@@ -5,7 +5,7 @@ namespace WordFrequencyCounter
 {
     public class TextProcessor
     {
-        public List<string> ProcessText(string text)
+        public List<string> ProcessText(string text, int n, int m)
         {
             List<string> words = new List<string>();
 
@@ -15,7 +15,14 @@ namespace WordFrequencyCounter
             {
                 if (!string.IsNullOrWhiteSpace(word))
                 {
-                    words.Add(word);
+                    string processedWord = word;
+
+                    if (processedWord.Length > n && processedWord.Length > m)
+                    {
+                        processedWord = processedWord.Substring(0, processedWord.Length - m);
+                    }
+
+                    words.Add(processedWord);
                 }
             }
 
